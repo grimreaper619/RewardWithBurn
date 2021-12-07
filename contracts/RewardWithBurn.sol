@@ -455,7 +455,7 @@ contract BNBRewardToken is ERC20, Ownable {
             uint16 totalFee = totalBuyFee + totalSellFee;
 
             uint256 swapTokens = contractTokenBalance
-                .mul(sellFee.liquidityFee)
+                .mul(buyFee.liquidityFee + sellFee.liquidityFee)
                 .div(totalFee);
             swapAndLiquify(swapTokens);
 
